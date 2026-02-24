@@ -12,6 +12,7 @@
     "@clerk/nextjs": "^6.38.1",
     "@clerk/themes": "^2.4.55",
     "@hookform/resolvers": "^5.2.2",
+    "@inngest/agent-kit": "^0.13.2",
     "@neondatabase/serverless": "^1.0.2",
     "@prisma/adapter-neon": "^7.4.1",
     "@prisma/client": "^7.4.1",

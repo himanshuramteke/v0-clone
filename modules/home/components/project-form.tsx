@@ -12,6 +12,7 @@ import { z } from "zod";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Form, FormField } from "@/components/ui/form";
+import { onInvoke } from "../actions";
 
 const formSchema = z.object({
   content: z
@@ -91,8 +92,20 @@ const ProjectForm: React.FC = () => {
     form.setValue("content", prompt);
   };
 
+  const onInvokeAI = async () => {
+    try {
+      const res = await onInvoke();
+      console.log(res);
+      toast.success("Done");
+    } catch (error) {
+      console.error("error", error);
+      toast.error("error invoking AI");
+    }
+  };
+
   return (
     <div className="space-y-8">
+      <Button onClick={onInvokeAI}>Invoke AI agent</Button>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {PROJECT_TEMPLATES.map((template, index) => (
           <button
